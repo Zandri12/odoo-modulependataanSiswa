@@ -1,0 +1,109 @@
+<?xml	version="1.0"?>	
+<odoo>
+
+	<menuitem name="Data" id="custom_top_menu" sequence="1"/>
+	<menuitem name="Datas" id="topping" parent="custom_top_menu"/>
+
+	<record	id="view_tree_pendataan"	model="ir.ui.view">	
+		<field	name="name">Tabel siswa</field>	
+		<field	name="model">pendataan.siswa</field>	
+		<field	name="arch"	type="xml">	
+				<tree>	
+						<field name="image" widget='image' class="oe_avatar"/>
+						<field name="nis"> </field>
+						<field	name="name"/>
+						<field name="kelas"/>
+						<field name="mapel"/>
+						<field name="nilai1"/>
+						<field name="nilai2"/>
+						<field name="predikat"/>
+						<field name="keterangan"/>
+						
+						
+
+
+								
+		                                	
+				</tree>	
+		</field>	
+	</record>
+	<record id="form_pendataan_model" model="ir.ui.view">
+		<field name="name">kustomisasi data siswa</field>
+		<field name="model">pendataan.siswa</field>
+		<field name="arch" type="xml">
+			
+
+			<form>
+				<sheet>
+					<group>
+						<group>
+							
+							<field name="image" widget='image' class="oe_avatar"/>
+							<field name="nis" required="1" />
+							<field name="name" required="1" placeholder="Name"/>
+							<field name="kelas" placeholder="Kelas"/>
+							<field name="mapel" required="1" placeholder="Mata Pelajaran"/>
+							<field name="nilai1"/>
+							<field name="nilai2"/>
+							<field name="predikat"/>
+							<field name="keterangan"/>
+									
+							
+						
+						</group>
+					</group>
+				</sheet>
+			</form>
+			
+		</field>
+	</record>
+	
+
+
+	<!-- =================================================================================================================================================================GURU======================GURU================================================== -->
+	<record	id="view_tree_datas"	model="ir.ui.view">	
+		<field	name="name">Tabel guru</field>	
+		<field	name="model">datas.guru</field>	
+		<field	name="arch"	type="xml">	
+				<tree>	
+						<field name="nip"> </field>
+						<field	name="T_name"/>
+						<field name="mapels"/>
+
+								
+		                                	
+				</tree>	
+		</field>	
+	</record>
+	
+	
+
+	
+	
+
+
+<!-- ==========================================================================================================================================================================Navigation======================Navigation================================================= -->
+
+
+	<record id="custom_action" model="ir.actions.act_window">
+		<field name="name">Menu Siswa</field>
+		<field name="res_model">pendataan.siswa</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	
+
+	<record id="custom_action_for_guru" model="ir.actions.act_window">
+		<field name="name">Menu Guru</field>
+		<field name="res_model">datas.guru</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+        <menuitem name="Guru" id="custom_child_menu_siswa" parent="topping" action="custom_action_for_guru"/>	 
+		<menuitem name="Siswa" id="custom_child_menu_guru" parent="topping" action="custom_action"/>
+		
+   
+	
+	                
+</odoo>
+ 
